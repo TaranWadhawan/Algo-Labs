@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Labs</title>
+    <link rel="stylesheet" href="algolabscommon.css">
+    <script src="algolabscommon.js"></script>
+    <script src="DSA.js"></script>
+    <link rel="stylesheet" href="DSA.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="background">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.32/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/RlDcBifDCR1LKAEb/scene.splinecode"></spline-viewer>
+    </div>
+
+
+    <header>
+        <nav class="header-content">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                </div>
+                <ul>
+                    <li id="list"><a href="Algo_Labs.html">Home</a></li>
+                    <li id="list" class="dropdown">
+                        <a href="About_Algo_Labs.html">About</a>
+                        <div class="dropdown-content">
+                            <a href="About_Algo_Labs.html#team">Our Team</a>
+                            <a href="About_Algo_Labs.html#concept">Our Concept</a>
+                            <a href="About_Algo_Labs.html#plans">Plans</a>
+                            <a href="About_Algo_Labs.html#contact">Contact</a>
+                        </div>
+                    </li>
+                    <li id="list" class="dropdown">
+                        <a href="DSA_Algo_Labs.html">Learn</a>
+                        <div class="dropdown-content">
+                            <a href="DSA_Algo_Labs.html#algo">Data Structure</a>
+                            <a href="DSA_Algo_Labs.html#search">Searching</a>
+                            <a href="DSA_Algo_Labs.html#sort">Sorting</a>
+                            <a href="DSA_Algo_Labs.html#cryptography">Cryptography</a>
+                            <a href="DSA_Algo_Labs.html#stacks">Stacks</a>
+                            <a href="DSA_Algo_Labs.html#tree">Tree</a>
+                        </div>
+                    </li>
+                    <li id="list"><a href="DSA_Algo_Labs.html#compiler&notes">Compiler & note</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search..." aria-label="Search keyword">
+                    <button id="search-button">Search</button>
+                </div>
+                <div class="result" id="result-display">
+                    <p id="result-text">How may I <b>Help</b> you</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="tab-buttons">
+            <button onclick="openTab(event, 'Aim')" class="active" id="button_left">Aim</button>
+            <button onclick="openTab(event, 'Concept')">Concept</button>
+            <button onclick="openTab(event, 'Algorithm')">Algorithm And Pseudo Code</button>
+            <button onclick="openTab(event, 'Demo')">Demo</button>
+            <button onclick="openTab(event, 'Quiz')" id="button_right">Quiz</button>
+        </div>
+        <div id="Aim" class="tab-content active">
+            <ul>
+                <li>
+                    <h2>What is DSA?</h2>
+                    <p>DSA is the study of organizing, managing, and manipulating data through structures and algorithms to optimize computational efficiency.</p>
+                </li>
+                <br>
+                <li>
+                    <h2>What is Data?</h2>
+                    <p>Data represents information processed by computer systems, stored in various forms (integers, strings, arrays, etc.) to support computation and analysis.</p>
+                </li>
+                <br>
+                <li>
+                    <h2>What is a Data Structure?</h2>
+                    <p>A data structure is a specific format to organize and store data to allow efficient access and modification. Examples include arrays, linked lists, stacks, and trees.</p>
+                </li>
+                <br>
+                <li>
+                    <h2>What is an Algorithm?</h2>
+                    <p>An algorithm is a step-by-step procedure for performing a task or solving a problem. It provides a method to process data, often using data structures.</p>
+                </li>
+                <br>
+                <li>
+                    <h2>Types of Data Structures</h2>
+                    <ul>
+                        <li>Primitive Data Structures: Basic structures like int, char, float, etc.</li>
+                        <li>Non-Primitive Data Structures:
+                            <ul>
+                                <li><b>Linear:</b> Arrays, Linked Lists, Stacks, and Queues, where data is arranged sequentially.</li>
+                                <li><b>Non-Linear:</b> Trees and Graphs, where data relationships are hierarchical or interconnected.</li>    
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h2>What is Time Complexity?</h2>
+                    <p>A measure of the time an algorithm takes to complete relative to input size. It is analyzed using Big O notation (e.g., O(1), O(n), O(log n)), guiding the efficiency of code execution.</p>
+                </li>
+                <br>
+                <li>
+                    <h2>What is Space Complexity?</h2>
+                    <p>A measure of the memory an algorithm needs to run, also analyzed with Big O notation. This factor influences a program’s scalability and resource consumption.</p>
+                </li>
+                <br>
+                <li>
+                    <h2>Additional Key Concepts</h2>
+                    <p>
+                        <ul>
+                            <li><b>Sorting and Searching Algorithms:</b> Techniques like Binary Search, Merge Sort, and Quick Sort to organize or locate data efficiently.</li>
+                            <li><b>Recursion:</b>A method where functions call themselves to solve sub-problems, integral to many algorithms.</li>
+                            <li><b>Dynamic Programming:</b>An optimization approach to solve problems by breaking them down into simpler overlapping sub-problems.</li>    
+                        </ul>
+                    </p>
+                </li>
+                <br>
+                <br>
+            </ul>
+        </div>
+        <div id="Concept" class="tab-content">
+            <div class="video-container">
+                <!-- Video element -->
+                <video id="video" src="video/Cryptography.mp4"></video>
+
+                <!-- Fallback Image (hidden by default) -->
+                <img id="fallbackImg" src="elements/picture.jpg" alt="Video not available" style="display:none; width:100%; border-radius:10px;">
+
+                <!-- Controls -->
+                <div class="controls">
+                    <button id="playPause">Play</button>
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <input type="range" id="volume" min="0" max="1" step="0.1" value="1" title="Volume">
+                </div>
+            </div>
+
+            <script>
+                const video = document.getElementById('video');
+                const playPauseButton = document.getElementById('playPause');
+                const volumeSlider = document.getElementById('volume');
+                const progressContainer = document.getElementById('progressContainer');
+                const progress = document.getElementById('progress');
+                const fallbackImg = document.getElementById('fallbackImg');
+
+                // Play / Pause
+                playPauseButton.addEventListener('click', () => {
+                    if (video.paused) {
+                        video.play();
+                        playPauseButton.textContent = 'Pause';
+                    } else {
+                        video.pause();
+                        playPauseButton.textContent = 'Play';
+                    }
+                });
+
+                // Progress bar update
+                video.addEventListener('timeupdate', () => {
+                    const progressPercent = (video.currentTime / video.duration) * 100;
+                    progress.style.width = `${progressPercent}%`;
+                });
+
+                // Seek on progress bar click
+                progressContainer.addEventListener('click', (e) => {
+                    const width = progressContainer.clientWidth;
+                    const clickX = e.offsetX;
+                    const duration = video.duration;
+                    video.currentTime = (clickX / width) * duration;
+                });
+
+                // Volume control
+                volumeSlider.addEventListener('input', () => {
+                    video.volume = volumeSlider.value;
+                });
+
+                // Handle video error → show image
+                video.addEventListener('error', () => {
+                    video.style.display = 'none';
+                    fallbackImg.style.display = 'block';
+                    console.warn("⚠️ Video not found. Showing fallback image.");
+                });
+
+                // Optional: if video source empty
+                if (!video.getAttribute('src')) {
+                    video.style.display = 'none';
+                    fallbackImg.style.display = 'block';
+                }
+            </script>
+        </div>
+        <div id="Algorithm" class="tab-content">
+            <!-- <h3>Algorithm and Psuedo Code</h3> -->
+            <ul>
+                <li>
+                    <h2>What is Algorithm?</h2>
+                    <p>An algorithm is a finite, step-by-step procedure or set of rules for solving a particular problem or performing a specific task. It outlines the logical sequence of actions to be performed to achieve a desired result.</p>
+                    <h3>Key Characteristics:</h3>
+                    <ul>
+                        <li><b>Definiteness:</b> Each step should be clear and unambiguous.</li>
+                        <li><b>Finiteness:</b> The algorithm must terminate after a finite number of steps.</li>
+                        <li><b>Input and Output:</b> An algorithm has defined inputs and expected outputs.</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h2>What is Flowchart?</h2>
+                    <p> A flowchart is a graphical representation of an algorithm, showing the sequence of steps using standardized symbols. It visually depicts the logical flow and helps in understanding the process or operation.</p>
+                    <h3>Key Characteristics:</h3>
+                    <ul>
+                        <li><b>Purpose:</b> Flowcharts make it easier to visualize the structure of an algorithm, which is especially helpful in planning, debugging, and explaining complex processes.</li>
+                        <li><b>Flowchart Symbols:</b>
+                            <ul>
+                                <li>Oval: Start/End of the process.</li>
+                                <li>Rectangle: Represents a process or operation, such as an arithmetic calculation.</li>
+                                <li>Parallelogram: Input or output operations.</li>
+                                <li>Parallelogram: Input or output operations.</li>
+                                <li>Arrows: Indicate the direction of flow from one step to another.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>What is Pheudo Code?</h2>
+                    <p>A flowchart is a graphical representation of an algorithm, showing the sequence of steps using standardized symbols. It visually depicts the logical flow and helps in understanding the process or operation.</p>
+                    <h3>Key Characteristics:</h3>
+                    <ul>
+                        <li>Written in a simple, structured format that combines natural language and programming logic.</li>
+                        <li>It doesn’t follow strict syntax rules of a programming language.</li>
+                        <li>It often includes keywords like IF, WHILE, FOR, etc., which help convey control flow.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="Demo" class="tab-content">
+            <!-- <h3>Demo</h3> -->
+            <!-- <p>Animation</p> -->
+            <center>
+                <div class="DSA_animation">
+                    <img src="elements/picture.jpg" alt="Picture">
+                </div>
+            </center>
+
+        </div>
+
+        <div id="Quiz" class="tab-content">
+            <div class="quiz-container">
+                <div class="header_Quiz">
+                    <h2>DSA MCQ Test</h2>
+                    <div class="timer" id="timer">Time: 10:00</div>
+                </div>
+                <div id="questionContainer" class="question-container"></div>
+                <div class="navigation">
+                    <button class="btn submit-btn" id="submitBtn">Submit Test</button>
+                    <input type="text" class="EmailID" id="emailID" placeholder="Email ID befor Submit">  
+                </div>
+                <div id="Quiz_results" class="Quiz_results">
+                    <div class="score">Your Score: <span id="scoreValue">0</span>/5</div>
+                    <div class="feedback" id="feedback"></div>
+                    <button class="btn retry-btn" id="retryBtn">Take New Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: "What is hashing?",
+                options: [
+                    "A technique to store data in binary format",
+                    "A method to encrypt data",
+                    "A technique to map data to a fixed-size representation",
+                    "A method to sort data in a specific order"
+                ],
+                correct: 2
+            },
+            {
+                question: "Which of the following is NOT a characteristic of a good hashing function?",
+                options: [
+                    "Deterministic",
+                    "Efficient to compute",
+                    "Produces fixed-size output",
+                    "Easily reversible"
+                ],
+                correct: 3
+            },
+            {
+                question: "What is a hash collision?",
+                options: [
+                    "When two hash functions produce different outputs",
+                    "When a hash function fails to produce an output",
+                    "When two inputs produce the same hash output",
+                    "When a hash function produces a unique output for every input"
+                ],
+                correct: 2
+            },
+            {
+                question: "Which cryptographic algorithm is commonly used for digital signatures?",
+                options: ["SHA-256", "AES", "RSA", "DES"],
+                correct: 2
+            },
+            {
+                question: "Which of the following is a popular hashing algorithm?",
+                options: ["RSA", "SHA-256", "AES", "RSA-2048"],
+                correct: 1
+            },
+            {
+                question: "What is the purpose of a salt in hashing?",
+                options: [
+                    "To add random data to the input for added security",
+                    "To convert hash to binary",
+                    "To reduce the length of the hash",
+                    "To improve hash performance"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which hashing technique is often used in password storage?",
+                options: ["SHA-1", "MD5", "bcrypt", "RSA"],
+                correct: 2
+            },
+            {
+                question: "What is the main purpose of cryptography?",
+                options: [
+                    "To store data efficiently",
+                    "To protect information by converting it into an unreadable format",
+                    "To increase data transmission speed",
+                    "To reduce file sizes"
+                ],
+                correct: 1
+            },
+            {
+                question: "Which type of cryptographic algorithm uses the same key for encryption and decryption?",
+                options: ["Asymmetric", "Symmetric", "Hashing", "Public key"],
+                correct: 1
+            },
+            {
+                question: "In cryptography, what does RSA stand for?",
+                options: [
+                    "Random Security Algorithm",
+                    "Recursive Security Algorithm",
+                    "Rivest-Shamir-Adleman",
+                    "Random Symmetric Algorithm"
+                ],
+                correct: 2
+            },
+            {
+                question: "Which of the following is an example of asymmetric encryption?",
+                options: ["AES", "SHA-256", "RSA", "MD5"],
+                correct: 2
+            },
+            {
+                question: "What is the output length of an SHA-256 hash?",
+                options: ["128 bits", "64 bits", "256 bits", "512 bits"],
+                correct: 2
+            },
+            {
+                question: "Which attack involves precomputing hashes to quickly find collisions?",
+                options: ["Man-in-the-middle attack", "SQL injection", "Rainbow table attack", "Brute force attack"],
+                correct: 2
+            },
+            {
+                question: "Which cryptographic method is considered the most secure for digital communication?",
+                options: ["Symmetric encryption", "Asymmetric encryption", "Hashing", "Compression"],
+                correct: 1
+            },
+            {
+                question: "What does MD5 stand for?",
+                options: ["Message Digest Algorithm 5", "Multi-Digest Format", "Message Data Format", "Multi-Data Format 5"],
+                correct: 0
+            }
+        ];
+
+        let currentQuestions = [];
+        let selectedAnswers = new Array(5).fill(-1);
+        let timeLeft = 600; 
+        let timerInterval;
+        function initializeQuiz() {
+            currentQuestions = shuffleArray(questions).slice(0, 5);
+            selectedAnswers = new Array(5).fill(-1);
+            displayQuestions();
+            startTimer();
+            
+            document.getElementById('Quiz_results').style.display = 'none';
+            document.getElementById('questionContainer').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'block';
+            document.getElementById('emailID').style.display = 'block';
+
+        }
+        function shuffleArray(array) {
+            let currentIndex = array.length;
+            while (currentIndex !== 0) {
+                const randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+        function displayQuestions() {
+            const container = document.getElementById('questionContainer');
+            container.innerHTML = '';
+
+            currentQuestions.forEach((q, questionIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-container';
+
+                const questionText = document.createElement('div');
+                questionText.className = 'question';
+                questionText.textContent = `${questionIndex + 1}. ${q.question}`;
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+
+                const shuffledOptions = shuffleArray([...q.options.map((opt, idx) => ({text: opt, index: idx}))]);
+
+                shuffledOptions.forEach((opt, optIndex) => {
+                    const option = document.createElement('div');
+                    option.className = 'option';
+                    if (selectedAnswers[questionIndex] === opt.index) {
+                        option.classList.add('selected');
+                    }
+                    option.textContent = opt.text;
+                    option.addEventListener('click', () => selectOption(questionIndex, opt.index));
+                    optionsDiv.appendChild(option);
+                });
+
+                questionDiv.appendChild(questionText);
+                questionDiv.appendChild(optionsDiv);
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            selectedAnswers[questionIndex] = optionIndex;
+            displayQuestions();
+        }
+
+        function startTimer() {
+            timeLeft = 600;
+            updateTimerDisplay();
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    submitTest();
+                }
+            }, 1000);
+        }
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        async function submitTest() {
+            clearInterval(timerInterval);
+            const score = calculateScore();
+            
+            await storeTestResult({
+                email: document.getElementById('emailID').value, 
+                score: score,
+                timestamp: new Date().toISOString()
+            });
+
+            displayResults(score);
+        }
+
+        function calculateScore() {
+            let score = 0;
+            currentQuestions.forEach((q, index) => {
+                if (selectedAnswers[index] === q.correct) {
+                    score++;
+                }
+            });
+            return score;
+        }
+        async function storeTestResult(resultData) {
+            const email = resultData.email;
+            const score = resultData.score;
+            const timestamp = resultData.timestamp;
+            const data = [
+                ['Email', 'Score', 'Timestamp'],  
+                [email, score, timestamp]         
+            ];
+            const worksheet = XLSX.utils.aoa_to_sheet(data);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'TestResults');
+            XLSX.writeFile(workbook, 'CryptographyTestResults.xlsx');
+            alert('Test result saved to Excel file.');
+        }
+        function displayResults(score) {
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('emailID').style.display = 'none';
+            document.getElementById('emailID').text = null;
+            document.getElementById('Quiz_results').style.display = 'block';
+            document.getElementById('scoreValue').textContent = score;
+            
+            const feedback = document.getElementById('feedback');
+            if (score >= 4) {
+                feedback.textContent = "Excellent! You have a strong understanding of DSA concepts.";
+            } else if (score >= 2) {
+                feedback.textContent = "Good effort! Keep practicing to improve your DSA knowledge.";
+            } else {
+                feedback.textContent = "Keep learning! Review the concepts and try again.";
+            }
+        }
+
+        document.getElementById('submitBtn').addEventListener('click', submitTest);
+        document.getElementById('retryBtn').addEventListener('click', initializeQuiz);
+
+        initializeQuiz();
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer">
+                <div class="footer-section">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                    <p class="footer-para">Algo Labs<br>Data Structure and Algorithms Coding<br>Nagpur, Maharashtra, India</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Data Structure and Algorithms</h3>
+                    <ul>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#search">Searching</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#sort">Sorting</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#cryptography">Cryptography</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#stacks">Stacks</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#tree">Tree</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">About</h3>
+                    <ul>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#about">About</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#concept">Our Concept</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#team">Team</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#plans">Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Contact</h3>
+                    <ul>
+                        <li><a class="footer-para" href="mailto:quantumcryptography3.6.9@gmail.com" target="_blank" rel="noopener noreferrer">quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="https://mail.google.com/mail/?view=cm&fs=1&to=quantumcryptography3.6.9@gmail.com&su=Your%20Subject&body=Your%20message%20here"" target="_blank" rel="noopener noreferrer">Gmail: quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="tel:+91 9876543210" target="_blank" rel="noopener noreferrer">+91 9876543210 (synthetic)</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html">Contact Us</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="X" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1058.01L667.137 450.887L356.364 0H0L468.551 681.821L0 1226.37H102.879L515.284 750.218L843.636 1226.37H1200L714.137 519.284H714.163ZM562.119 687.828L520.843 628.422L140.163 79.5685H306.457L610.291 520.037L651.568 579.442L1047.73 1146.8H881.435L562.119 687.828Z"/></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © <span id="current-year"></span> Algo Labs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

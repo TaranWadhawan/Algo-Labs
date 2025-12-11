@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Labs</title>
+    <link rel="stylesheet" href="algolabscommon.css">
+    <script src="algolabscommon.js"></script>
+    <script src="DSA.js"></script>
+    <link rel="stylesheet" href="DSA.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="background">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.32/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/RlDcBifDCR1LKAEb/scene.splinecode"></spline-viewer>
+    </div>
+
+
+    <header>
+        <nav class="header-content">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                </div>
+                <ul>
+                    <li id="list"><a href="Algo_Labs.html">Home</a></li>
+                    <li id="list" class="dropdown">
+                        <a href="About_Algo_Labs.html">About</a>
+                        <div class="dropdown-content">
+                            <a href="About_Algo_Labs.html#team">Our Team</a>
+                            <a href="About_Algo_Labs.html#concept">Our Concept</a>
+                            <a href="About_Algo_Labs.html#plans">Plans</a>
+                            <a href="About_Algo_Labs.html#contact">Contact</a>
+                        </div>
+                    </li>
+                    <li id="list" class="dropdown">
+                        <a href="DSA_Algo_Labs.html">Learn</a>
+                        <div class="dropdown-content">
+                            <a href="DSA_Algo_Labs.html#algo">Data Structure</a>
+                            <a href="DSA_Algo_Labs.html#search">Searching</a>
+                            <a href="DSA_Algo_Labs.html#sort">Sorting</a>
+                            <a href="DSA_Algo_Labs.html#cryptography">Cryptography</a>
+                            <a href="DSA_Algo_Labs.html#stacks">Stacks</a>
+                            <a href="DSA_Algo_Labs.html#tree">Tree</a>
+                        </div>
+                    </li>
+                    <li id="list"><a href="DSA_Algo_Labs.html#compiler&notes">Compiler & note</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search..." aria-label="Search keyword">
+                    <button id="search-button">Search</button>
+                </div>
+                <div class="result" id="result-display">
+                    <p id="result-text">How may I <b>Help</b> you</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="tab-buttons">
+            <button onclick="openTab(event, 'Aim')" class="active" id="button_left">Aim</button>
+            <button onclick="openTab(event, 'Concept')">Concept</button>
+            <button onclick="openTab(event, 'Algorithm')">Algorithm And Pseudo Code</button>
+            <button onclick="openTab(event, 'Demo')">Demo</button>
+            <button onclick="openTab(event, 'Quiz')" id="button_right">Quiz</button>
+        </div>
+        <div id="Aim" class="tab-content active">
+            <ul>
+                <li>
+                    <h2>What is a Stack?</h2>
+                    <p>A stack is a linear data structure that follows the LIFO (Last In, First Out) principle, meaning the last element added is the first one to be removed. It allows operations to be performed only at one end, known as the "top" of the stack.</p>
+                    
+                </li>
+                <br>
+                <li>
+                    <h2>Key Characteristics:</h2>
+                    
+                    <ul>
+                        <li><b>LIFO Order: </b>Elements are added and removed from the same end.</li>
+                        <li><b>Dynamic Size: </b>Can grow and shrink as needed (in linked list implementation).</li>
+                        <li><b>Basic Operations: </b>Includes push, pop, and peek.</li>
+                        <li><b>Core Operations: </b>
+                            <ul>
+                                <li>Push: Adds an element to the top of the stack.</li>
+                                <li>Pop: Removes the element from the top of the stack.</li>
+                                <li>Peek: Returns the top element without removing it.</li>
+                                <li>isEmpty: Checks if the stack is empty.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h2>What is its Applications?</h2>
+                    <ul>
+                        <li>Function call management (recursion).</li>
+                        <li>Backtracking algorithms (e.g., pathfinding).</li>
+                        <li>Expression evaluation and parsing.</li>
+                    </ul>
+                </li>
+                <br>
+                <br>
+            </ul>
+        </div>
+        <div id="Concept" class="tab-content">
+            <div class="video-container">
+                <!-- Video element -->
+                <video id="video" src="video/Tree.mp4"></video>
+
+                <!-- Fallback Image (hidden by default) -->
+                <img id="fallbackImg" src="elements/picture.jpg" alt="Video not available" style="display:none; width:100%; border-radius:10px;">
+
+                <!-- Controls -->
+                <div class="controls">
+                    <button id="playPause">Play</button>
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <input type="range" id="volume" min="0" max="1" step="0.1" value="1" title="Volume">
+                </div>
+            </div>
+
+            <script>
+                const video = document.getElementById('video');
+                const playPauseButton = document.getElementById('playPause');
+                const volumeSlider = document.getElementById('volume');
+                const progressContainer = document.getElementById('progressContainer');
+                const progress = document.getElementById('progress');
+                const fallbackImg = document.getElementById('fallbackImg');
+
+                // Play / Pause
+                playPauseButton.addEventListener('click', () => {
+                    if (video.paused) {
+                        video.play();
+                        playPauseButton.textContent = 'Pause';
+                    } else {
+                        video.pause();
+                        playPauseButton.textContent = 'Play';
+                    }
+                });
+
+                // Progress bar update
+                video.addEventListener('timeupdate', () => {
+                    const progressPercent = (video.currentTime / video.duration) * 100;
+                    progress.style.width = `${progressPercent}%`;
+                });
+
+                // Seek on progress bar click
+                progressContainer.addEventListener('click', (e) => {
+                    const width = progressContainer.clientWidth;
+                    const clickX = e.offsetX;
+                    const duration = video.duration;
+                    video.currentTime = (clickX / width) * duration;
+                });
+
+                // Volume control
+                volumeSlider.addEventListener('input', () => {
+                    video.volume = volumeSlider.value;
+                });
+
+                // Handle video error → show image
+                video.addEventListener('error', () => {
+                    video.style.display = 'none';
+                    fallbackImg.style.display = 'block';
+                    console.warn("⚠️ Video not found. Showing fallback image.");
+                });
+
+                // Optional: if video source empty
+                if (!video.getAttribute('src')) {
+                    video.style.display = 'none';
+                    fallbackImg.style.display = 'block';
+                }
+            </script>
+        </div>
+        <div id="Algorithm" class="tab-content">
+            <!-- <h3>Algorithm and Psuedo Code</h3> -->
+            <h2>Algorithm and Pseudo code For Selection Sort.</h2>
+            <ul>
+                <li>
+                    <h3>Algorithm</h3>
+                    <ol>
+                        <li><p>Iterate through the array.</p></li>
+                        <li><p>Find the smallest element in the unsorted portion.</p></li>
+                        <li><p>Swap it with the first unsorted element.</p></li>
+                        <li><p>Repeat until the array is sorted.</p></li>
+                    </ol>
+                </li>
+                <li>
+                    <h3>Pseudo Code</h3>
+                    <pre>
+                        SelectionSort(array)
+                        FOR i = 0 TO n-1
+                            minIndex = i
+                            FOR j = i+1 TO n
+                                IF array[j] < array[minIndex] THEN
+                                    minIndex = j
+                                END IF
+                            END FOR
+                            Swap(array[i], array[minIndex])
+                        END FOR
+                                        
+                    </pre>
+                </li>
+            </ul>
+            <h2>Algorithm and Pseudo code For Merge Sort.</h2>
+            <ul>
+                <li>
+                    <h3>Algorithm</h3>
+                    <ol>
+                        <li><p>Divide the unsorted list into two approximately equal halves.</p></li>
+                        <li><p>Recursively sort both halves.</p></li>
+                        <li><p>Merge the sorted halves back together.</p></li>
+                    </ol>
+                </li>
+                <li>
+                    <h3>Pseudo Code</h3>
+                    <pre>
+                        MERGE_SORT(array, left, right)
+                            IF left < right THEN
+                                mid = (left + right) / 2
+                                MERGE_SORT(array, left, mid)        // Sort left half
+                                MERGE_SORT(array, mid + 1, right)   // Sort right half
+                                MERGE(array, left, mid, right)      // Merge sorted halves
+
+                        MERGE(array, left, mid, right)
+                            // Create temporary arrays for left and right subarrays
+                            n1 = mid - left + 1
+                            n2 = right - mid
+                            CREATE leftArray[n1], rightArray[n2]
+
+                            // Copy data to temporary arrays
+                            FOR i = 0 TO n1 - 1 DO leftArray[i] = array[left + i]
+                            FOR j = 0 TO n2 - 1 DO rightArray[j] = array[mid + 1 + j]
+
+                            // Merge the temporary arrays
+                            i = 0, j = 0, k = left
+                            WHILE i < n1 AND j < n2 DO
+                                IF leftArray[i] <= rightArray[j] THEN
+                                    array[k] = leftArray[i]
+                                    i++
+                                ELSE
+                                    array[k] = rightArray[j]
+                                    j++
+                                k++
+
+                            // Copy remaining elements, if any
+                            WHILE i < n1 DO array[k++] = leftArray[i++]
+                            WHILE j < n2 DO array[k++] = rightArray[j++]
+
+                    </pre>
+                </li>
+            </ul>
+        </div>
+        <div id="Demo" class="tab-content">
+            <div class="container">
+                <div class="controls">
+                    <input type="number" id="value-input" placeholder="Enter value">
+                    <button onclick="insertNode()">Insert</button>
+                    <button onclick="deleteNode()">Delete</button>
+                    <button onclick="clearTree()">Clear Tree</button>
+                    <button onclick="showInorder()">Inorder</button>
+                    <button onclick="showPreorder()">Preorder</button>
+                    <button onclick="showPostorder()">Postorder</button>
+                </div>
+                <div class="tree-container" id="tree-container">
+                    <canvas class="tree-canvas" id="tree-canvas"></canvas>
+                </div>
+                <div class="traversal-output" id="traversal-output"></div>
+            </div>
+        
+            <script>
+                class TreeNode {
+                    constructor(value) {
+                        this.value = value;
+                        this.left = null;
+                        this.right = null;
+                        this.x = 0;
+                        this.y = 0;
+                        this.level = 0;
+                    }
+                }
+        
+                class BinaryTree {
+                    constructor() {
+                        this.root = null;
+                        this.nodeSpacing = 80;
+                        this.levelHeight = 80;
+                    }
+        
+                    insert(value) {
+                        const newNode = new TreeNode(value);
+                        
+                        if (!this.root) {
+                            this.root = newNode;
+                            return;
+                        }
+        
+                        let current = this.root;
+                        while (true) {
+                            if (value < current.value) {
+                                if (!current.left) {
+                                    current.left = newNode;
+                                    break;
+                                }
+                                current = current.left;
+                            } else {
+                                if (!current.right) {
+                                    current.right = newNode;
+                                    break;
+                                }
+                                current = current.right;
+                            }
+                        }
+                        this.updateNodePositions();
+                    }
+        
+                    delete(value) {
+                        this.root = this._deleteNode(this.root, value);
+                        this.updateNodePositions();
+                    }
+        
+                    _deleteNode(node, value) {
+                        if (!node) return null;
+        
+                        if (value < node.value) {
+                            node.left = this._deleteNode(node.left, value);
+                            return node;
+                        }
+                        if (value > node.value) {
+                            node.right = this._deleteNode(node.right, value);
+                            return node;
+                        }
+        
+                        if (!node.left) return node.right;
+                        if (!node.right) return node.left;
+        
+                        let minNode = this._findMin(node.right);
+                        node.value = minNode.value;
+                        node.right = this._deleteNode(node.right, minNode.value);
+                        return node;
+                    }
+        
+                    _findMin(node) {
+                        while (node.left) {
+                            node = node.left;
+                        }
+                        return node;
+                    }
+        
+                    updateNodePositions() {
+                        if (!this.root) return;
+        
+                        const nodePositions = new Map();
+                        let leftMost = Number.MAX_VALUE;
+                        let rightMost = Number.MIN_VALUE;
+        
+                        const calculateInitialX = (node, level, position) => {
+                            if (!node) return;
+        
+                            node.level = level;
+                            calculateInitialX(node.left, level + 1, position * 2);
+                            
+                            let x = position * this.nodeSpacing;
+                            nodePositions.set(node, x);
+                            leftMost = Math.min(leftMost, x);
+                            rightMost = Math.max(rightMost, x);
+                            
+                            calculateInitialX(node.right, level + 1, position * 2 + 1);
+                        };
+        
+                        calculateInitialX(this.root, 0, 1);
+        
+                        const offset = (rightMost + leftMost) / 2;
+                        const containerWidth = document.getElementById('tree-container').offsetWidth;
+                        
+                        const updateFinalPositions = (node, level) => {
+                            if (!node) return;
+        
+                            node.x = (nodePositions.get(node) - offset) + containerWidth / 2;
+                            node.y = level * this.levelHeight + 40;
+        
+                            updateFinalPositions(node.left, level + 1);
+                            updateFinalPositions(node.right, level + 1);
+                        };
+        
+                        updateFinalPositions(this.root, 0);
+                    }
+        
+                    traverseInorder() {
+                        const result = [];
+                        const traverse = (node) => {
+                            if (node) {
+                                traverse(node.left);
+                                result.push(node);
+                                traverse(node.right);
+                            }
+                        };
+                        traverse(this.root);
+                        return result;
+                    }
+        
+                    traversePreorder() {
+                        const result = [];
+                        const traverse = (node) => {
+                            if (node) {
+                                result.push(node);
+                                traverse(node.left);
+                                traverse(node.right);
+                            }
+                        };
+                        traverse(this.root);
+                        return result;
+                    }
+        
+                    traversePostorder() {
+                        const result = [];
+                        const traverse = (node) => {
+                            if (node) {
+                                traverse(node.left);
+                                traverse(node.right);
+                                result.push(node);
+                            }
+                        };
+                        traverse(this.root);
+                        return result;
+                    }
+                }
+        
+                const tree = new BinaryTree();
+                const canvas = document.getElementById('tree-canvas');
+                const ctx = canvas.getContext('2d');
+        
+                function resizeCanvas() {
+                    const container = document.getElementById('tree-container');
+                    canvas.width = container.offsetWidth;
+                    canvas.height = container.offsetHeight;
+                }
+        
+                window.addEventListener('resize', () => {
+                    resizeCanvas();
+                    tree.updateNodePositions();
+                    updateTreeView();
+                });
+        
+                resizeCanvas();
+        
+                function drawEdge(fromX, fromY, toX, toY) {
+                    ctx.beginPath();
+                    ctx.moveTo(fromX, fromY);
+                    ctx.lineTo(toX, toY);
+                    ctx.strokeStyle = '#666';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                }
+        
+                function createNodeElement(value, x, y) {
+                    const node = document.createElement('div');
+                    node.className = 'node';
+                    node.textContent = value;
+                    node.style.left = x + 'px';
+                    node.style.top = y + 'px';
+                    return node;
+                }
+        
+                function updateTreeView() {
+                    const container = document.getElementById('tree-container');
+                    container.querySelectorAll('.node').forEach(node => node.remove());
+                    
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+                    if (!tree.root) return;
+                    const drawEdges = (node) => {
+                        if (!node) return;
+                        if (node.left) {
+                            drawEdge(node.x, node.y, node.left.x, node.left.y);
+                            drawEdges(node.left);
+                        }
+                        if (node.right) {
+                            drawEdge(node.x, node.y, node.right.x, node.right.y);
+                            drawEdges(node.right);
+                        }
+                    };
+        
+                    drawEdges(tree.root);
+                    const drawNodes = (node) => {
+                        if (!node) return;
+                        container.appendChild(createNodeElement(node.value, node.x, node.y));
+                        drawNodes(node.left);
+                        drawNodes(node.right);
+                    };
+        
+                    drawNodes(tree.root);
+                }
+        
+                async function highlightTraversal(nodes, delay = 1000) {
+                    const output = document.getElementById('traversal-output');
+                    output.textContent = '';
+        
+                    for (const node of nodes) {
+                        const nodeElement = Array.from(document.getElementsByClassName('node'))
+                            .find(el => parseInt(el.textContent) === node.value);
+                        
+                        if (nodeElement) {
+                            nodeElement.classList.add('highlight');
+                            output.textContent += node.value + ' ';
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            nodeElement.classList.remove('highlight');
+                        }
+                    }
+                }
+        
+                function insertNode() {
+                    const input = document.getElementById('value-input');
+                    const value = parseInt(input.value);
+                    if (!isNaN(value)) {
+                        tree.insert(value);
+                        updateTreeView();
+                        input.value = '';
+                    }
+                }
+        
+                function deleteNode() {
+                    const input = document.getElementById('value-input');
+                    const value = parseInt(input.value);
+                    if (!isNaN(value)) {
+                        tree.delete(value);
+                        updateTreeView();
+                        input.value = '';
+                    }
+                }
+        
+                function clearTree() {
+                    tree.root = null;
+                    updateTreeView();
+                    document.getElementById('traversal-output').textContent = '';
+                }
+        
+                function showInorder() {
+                    highlightTraversal(tree.traverseInorder());
+                }
+        
+                function showPreorder() {
+                    highlightTraversal(tree.traversePreorder());
+                }
+        
+                function showPostorder() {
+                    highlightTraversal(tree.traversePostorder());
+                }
+        
+                updateTreeView();
+            </script>
+        </div>
+        <div id="Quiz" class="tab-content">
+            <div class="quiz-container">
+                <div class="header_Quiz">
+                    <h2>Tree MCQ Test</h2>
+                    <div class="timer" id="timer">Time: 10:00</div>
+                </div>
+                <div id="questionContainer" class="question-container"></div>
+                <div class="navigation">
+                    <button class="btn submit-btn" id="submitBtn">Submit Test</button>
+                    <input type="text" class="EmailID" id="emailID" placeholder="Email ID befor Submit">  
+                </div>
+                <div id="Quiz_results" class="Quiz_results">
+                    <div class="score">Your Score: <span id="scoreValue">0</span>/5</div>
+                    <div class="feedback" id="feedback"></div>
+                    <button class="btn retry-btn" id="retryBtn">Take New Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: "What is a binary tree?",
+                options: [
+                    "A tree where each node has at most two children",
+                    "A tree where each node has at most three children",
+                    "A tree where each node has at least two children",
+                    "A tree where each node has exactly two children"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which traversal visits nodes in the order: Left, Root, Right?",
+                options: ["Preorder", "Postorder", "Inorder", "Level-order"],
+                correct: 2
+            },
+            {
+                question: "What is the height of an empty tree?",
+                options: ["0", "-1", "1", "Depends on tree type"],
+                correct: 1
+            },
+            {
+                question: "Which type of binary tree has all levels fully filled except possibly the last?",
+                options: ["Full binary tree", "Complete binary tree", "Perfect binary tree", "Balanced binary tree"],
+                correct: 1
+            },
+            {
+                question: "In a binary search tree (BST), where would a node with value less than the root go?",
+                options: ["To the right of the root", "To the left of the root", "It depends on tree balancing", "It can go anywhere"],
+                correct: 1
+            },
+            {
+                question: "What is the time complexity of searching in a balanced binary search tree (BST)?",
+                options: ["O(log n)", "O(n)", "O(n log n)", "O(1)"],
+                correct: 0
+            },
+            {
+                question: "Which traversal method is used for Breadth-First Search (BFS)?",
+                options: ["Inorder", "Preorder", "Postorder", "Level-order"],
+                correct: 3
+            },
+            {
+                question: "What is the main property of a Binary Search Tree (BST)?",
+                options: [
+                    "Each node has two children",
+                    "All levels are completely filled",
+                    "Left child is smaller than parent, right child is larger",
+                    "All leaves are at the same depth"
+                ],
+                correct: 2
+            },
+            {
+                question: "Which tree has nodes with at most 3 children?",
+                options: ["Binary tree", "Ternary tree", "AVL tree", "Binary search tree"],
+                correct: 1
+            },
+            {
+                question: "What type of tree balances itself during insertions and deletions?",
+                options: ["Binary tree", "AVL tree", "Complete binary tree", "Full binary tree"],
+                correct: 1
+            },
+            {
+                question: "Which traversal method visits nodes in the order: Root, Left, Right?",
+                options: ["Inorder", "Preorder", "Postorder", "Level-order"],
+                correct: 1
+            },
+            {
+                question: "What is the height of a full binary tree with 7 nodes?",
+                options: ["2", "3", "4", "7"],
+                correct: 1
+            },
+            {
+                question: "In which type of tree are all leaves at the same depth, and all internal nodes have two children?",
+                options: ["Full binary tree", "Complete binary tree", "Perfect binary tree", "Balanced binary tree"],
+                correct: 2
+            },
+            {
+                question: "Which of the following is not a binary tree traversal technique?",
+                options: ["Preorder", "Postorder", "Level-order", "Depth-order"],
+                correct: 3
+            },
+            {
+                question: "In an AVL tree, what is the maximum difference in height between two child subtrees of any node?",
+                options: ["0", "1", "2", "It varies with each node"],
+                correct: 1
+            }
+        ];
+
+
+        let currentQuestions = [];
+        let selectedAnswers = new Array(5).fill(-1);
+        let timeLeft = 600; 
+        let timerInterval;
+        function initializeQuiz() {
+            currentQuestions = shuffleArray(questions).slice(0, 5);
+            selectedAnswers = new Array(5).fill(-1);
+            displayQuestions();
+            startTimer();
+            
+            document.getElementById('Quiz_results').style.display = 'none';
+            document.getElementById('questionContainer').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'block';
+            document.getElementById('emailID').style.display = 'block';
+
+        }
+        function shuffleArray(array) {
+            let currentIndex = array.length;
+            while (currentIndex !== 0) {
+                const randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+        function displayQuestions() {
+            const container = document.getElementById('questionContainer');
+            container.innerHTML = '';
+
+            currentQuestions.forEach((q, questionIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-container';
+
+                const questionText = document.createElement('div');
+                questionText.className = 'question';
+                questionText.textContent = `${questionIndex + 1}. ${q.question}`;
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+
+                const shuffledOptions = shuffleArray([...q.options.map((opt, idx) => ({text: opt, index: idx}))]);
+
+                shuffledOptions.forEach((opt, optIndex) => {
+                    const option = document.createElement('div');
+                    option.className = 'option';
+                    if (selectedAnswers[questionIndex] === opt.index) {
+                        option.classList.add('selected');
+                    }
+                    option.textContent = opt.text;
+                    option.addEventListener('click', () => selectOption(questionIndex, opt.index));
+                    optionsDiv.appendChild(option);
+                });
+
+                questionDiv.appendChild(questionText);
+                questionDiv.appendChild(optionsDiv);
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            selectedAnswers[questionIndex] = optionIndex;
+            displayQuestions();
+        }
+
+        function startTimer() {
+            timeLeft = 600;
+            updateTimerDisplay();
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    submitTest();
+                }
+            }, 1000);
+        }
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        async function submitTest() {
+            clearInterval(timerInterval);
+            const score = calculateScore();
+            
+            await storeTestResult({
+                email: document.getElementById('emailID').value, 
+                score: score,
+                timestamp: new Date().toISOString()
+            });
+
+            displayResults(score);
+        }
+
+        function calculateScore() {
+            let score = 0;
+            currentQuestions.forEach((q, index) => {
+                if (selectedAnswers[index] === q.correct) {
+                    score++;
+                }
+            });
+            return score;
+        }
+        async function storeTestResult(resultData) {
+            const email = resultData.email;
+            const score = resultData.score;
+            const timestamp = resultData.timestamp;
+            const data = [
+                ['Email', 'Score', 'Timestamp'],  
+                [email, score, timestamp]         
+            ];
+            const worksheet = XLSX.utils.aoa_to_sheet(data);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'TestResults');
+            XLSX.writeFile(workbook, 'TreeTestResults.xlsx');
+            alert('Test result saved to Excel file.');
+        }
+        function displayResults(score) {
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('emailID').style.display = 'none';
+            document.getElementById('emailID').text = null;
+            document.getElementById('Quiz_results').style.display = 'block';
+            document.getElementById('scoreValue').textContent = score;
+            
+            const feedback = document.getElementById('feedback');
+            if (score >= 4) {
+                feedback.textContent = "Excellent! You have a strong understanding of DSA concepts.";
+            } else if (score >= 2) {
+                feedback.textContent = "Good effort! Keep practicing to improve your DSA knowledge.";
+            } else {
+                feedback.textContent = "Keep learning! Review the concepts and try again.";
+            }
+        }
+
+        document.getElementById('submitBtn').addEventListener('click', submitTest);
+        document.getElementById('retryBtn').addEventListener('click', initializeQuiz);
+
+        initializeQuiz();
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer">
+                <div class="footer-section">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                    <p class="footer-para">Algo Labs<br>Data Structure and Algorithms Coding<br>Nagpur, Maharashtra, India</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Data Structure and Algorithms</h3>
+                    <ul>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#search">Searching</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#sort">Sorting</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#cryptography">Cryptography</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#stacks">Stacks</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#tree">Tree</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">About</h3>
+                    <ul>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#about">About</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#concept">Our Concept</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#team">Team</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#plans">Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Contact</h3>
+                    <ul>
+                        <li><a class="footer-para" href="mailto:quantumcryptography3.6.9@gmail.com" target="_blank" rel="noopener noreferrer">quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="https://mail.google.com/mail/?view=cm&fs=1&to=quantumcryptography3.6.9@gmail.com&su=Your%20Subject&body=Your%20message%20here"" target="_blank" rel="noopener noreferrer">Gmail: quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="tel:+91 9876543210" target="_blank" rel="noopener noreferrer">+91 9876543210 (synthetic)</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html">Contact Us</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="X" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1058.01L667.137 450.887L356.364 0H0L468.551 681.821L0 1226.37H102.879L515.284 750.218L843.636 1226.37H1200L714.137 519.284H714.163ZM562.119 687.828L520.843 628.422L140.163 79.5685H306.457L610.291 520.037L651.568 579.442L1047.73 1146.8H881.435L562.119 687.828Z"/></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © <span id="current-year"></span> Algo Labs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

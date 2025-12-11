@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Labs</title>
+    <link rel="stylesheet" href="algolabscommon.css">
+    <script src="algolabscommon.js"></script>
+    <script src="DSA.js"></script>
+    <link rel="stylesheet" href="DSA.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            box-shadow: 0 6px 6px rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            margin: 0 20px; /* Add horizontal margin */
+            min-height: 800px; /* Ensure content area has a minimum height */
+            /* display: flex; Make content display flex for 2-column layout */
+            justify-content: center;
+            padding: 30px;
+        }
+        .tab-content.active {
+            display: flex; /* Only active tab content is displayed as flex */
+        }
+
+        /* Compiler specific styles */
+        .compiler-layout {
+            display: flex;
+            width: 100%;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .compiler-left-section, .compiler-right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .compiler-left-section {
+            flex: 1;
+            min-width: 800px; /* Adjust as needed */
+        }
+
+        .compiler-right-section {
+            flex: 1;
+            min-width: 450px; /* Adjust as needed */
+            max-width: 450px;
+        }
+
+        .language-selector-run {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.35);
+            border-radius: 10px;
+            box-shadow: 0 4px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        .language-selector-run label {
+            font-family: 'new_font', sans-serif;
+            font-size: 18px;
+            color: white;
+        }
+
+        .language-selector-run select {
+            padding: 10px 15px;
+            font-size: 16px;
+            font-family: 'new_font', sans-serif;
+            background-color: antiquewhite;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .language-selector-run select:hover {
+            background-color: #f0e6d2;
+        }
+
+        #run-btn {
+            padding: 10px 25px;
+            font-size: 18px;
+            font-family: 'new_font', sans-serif;
+            background-color: rgba(255, 255, 255, 1);
+            color: black;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 4px rgba(255, 255, 255, 0.1);
+        }
+        #run-btn:hover {
+            background-color: antiquewhite;
+        }
+
+        #editor {
+            height: 700px;
+            width: 100%; /* Make editor take full width of its container */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden; /* Ensure content respects border-radius */
+        }
+
+        .terminal-output-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: rgba(0, 0, 0, 0.35);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 4px rgba(255, 255, 255, 0.1);
+            flex: 1; /* Allow it to grow */
+        }
+
+        .terminal-output-section h3 {
+            font-family: 'new_font', sans-serif;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        #output {
+            width: 380px;
+            min-height: 450px; /* Adjust height as needed */
+            background-color: rgb(70, 70, 70);
+            color: aqua;
+            font-family: 'new_font', monospace; /* Use monospace for code output */
+            font-size: 16px;
+            padding: 15px;
+            border-radius: 8px;
+            overflow: auto;
+            white-space: pre-wrap; /* Preserve whitespace and wrap text */
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .download-buttons button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-family: 'new_font', sans-serif;
+            background-color: rgba(255, 255, 255, 1);
+            color: black;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 4px rgba(255, 255, 255, 0.1);
+        }
+        .download-buttons button:hover {
+            background-color: antiquewhite;
+        }
+        /* Styling for Notes content */
+        #Notes h1 {
+            font-family: 'new_font', sans-serif;
+            color: antiquewhite;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #Notes .download-buttons { /* Reusing download-buttons class for consistent button style */
+            width: fit-content; /* Adjust width to content */
+            margin: 20px auto; /* Center the download buttons */
+        }
+        #Notes .download-buttons li {
+            list-style: none; /* Remove bullet points */
+            margin: 10px 0;
+        }
+        #Notes .download-buttons a {
+            text-decoration: none;
+        }
+        #Notes .download-buttons button {
+             width: 250px; /* Adjust button width for notes */
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.32/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/RlDcBifDCR1LKAEb/scene.splinecode"></spline-viewer>
+    </div>
+
+
+    <header>
+        <nav class="header-content">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                </div>
+                <ul>
+                    <li id="list"><a href="Algo_Labs.html">Home</a></li>
+                    <li id="list" class="dropdown">
+                        <a href="About_Algo_Labs.html">About</a>
+                        <div class="dropdown-content">
+                            <a href="About_Algo_Labs.html#team">Our Team</a>
+                            <a href="About_Algo_Labs.html#concept">Our Concept</a>
+                            <a href="About_Algo_Labs.html#plans">Plans</a>
+                            <a href="About_Algo_Labs.html#contact">Contact</a>
+                        </div>
+                    </li>
+                    <li id="list" class="dropdown">
+                        <a href="DSA_Algo_Labs.html">Learn</a>
+                        <div class="dropdown-content">
+                            <a href="DSA_Algo_Labs.html#algo">Data Structure</a>
+                            <a href="DSA_Algo_Labs.html#search">Searching</a>
+                            <a href="DSA_Algo_Labs.html#sort">Sorting</a>
+                            <a href="DSA_Algo_Labs.html#cryptography">Cryptography</a>
+                            <a href="DSA_Algo_Labs.html#stacks">Stacks</a>
+                            <a href="DSA_Algo_Labs.html#tree">Tree</a>
+                        </div>
+                    </li>
+                    <li id="list"><a href="DSA_Algo_Labs.html#compiler&notes">Compiler & note</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search..." aria-label="Search keyword">
+                    <button id="search-button">Search</button>
+                </div>
+                <div class="result" id="result-display">
+                    <p id="result-text">How may I <b>Help</b> you</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div class="main-content">
+        <div class="tab-buttons">
+            <button onclick="openTab(event, 'Code_editor')" class="active" id="button_left">Code Editor</button>
+            <button onclick="openTab(event, 'Notes')" id="button_right">Notes</button>
+        </div>
+        
+        <div id="Code_editor" class="tab-content active">
+            <div class="compiler-layout">
+                <div class="compiler-left-section">
+                    <div class="language-selector-run">
+                        <label for="language-select"><b>Choose Language: </b></label>
+                        <select id="language-select">
+                            <option value="c">C</option>
+                            <option value="cpp">C++</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                        </select>
+                        <button id="run-btn">▶ Run Code</button>
+                    </div>
+                    <div id="editor"></div>
+                </div>
+
+                <div class="compiler-right-section">
+                    <div class="terminal-output-section">
+                        <h3>Terminal Output:</h3>
+                        <pre id="output"></pre>
+                        <div class="download-buttons">
+                            <button id="download-code-btn">Download Code</button>
+                            <button id="download-output-btn">Download Output (Text)</button>
+                            <button id="download-output-img-btn">Download Output (Image)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="Notes" class="tab-content">
+            <div>
+                <h1> Lecture 1 Notes</h1>
+                <ul class="download-buttons">
+                    <li><a href="notes\DSA_lec1.pdf" target="_blank"><button>Preview PDF</button></a></li>
+                    <li><a href="notes\DSA_1.pdf" download><button>Download PDF</button></a></li>
+                </ul>
+                <br>
+                <br>
+                <h1 style="font-family: 'new_font',sans-serif;"> Lecture 2 Notes</h1>
+                <ul class="download-buttons">
+                    <li><a href="notes\DSA_lec2.pdf" target="_blank"><button>Preview PDF</button></a></li>
+                    <li><a href="notes\DSA_2.pdf" download><button>Download PDF</button></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        // Function to handle tab switching (from DSA.js, ensure it's loaded)
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-buttons")[0].getElementsByTagName("button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "flex"; // Changed to flex for compiler-layout
+            evt.currentTarget.className += " active";
+        }
+
+
+        // Predefined Hello World code
+        const demoCodes = {
+            c: `#include <stdio.h>
+int main() {
+    printf("Hello, World!\\n");
+    return 0;
+}`,
+            cpp: `#include <iostream>
+using namespace std;
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}`,
+            python: `print("Hello, World!")`,
+            java: `public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}`
+        };
+
+        let editor;
+
+        // Load Monaco Editor
+        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' } });
+        require(['vs/editor/editor.main'], function () {
+            editor = monaco.editor.create(document.getElementById('editor'), {
+            value: demoCodes['c'],
+            language: 'c',
+            theme: 'vs-dark',
+            automaticLayout: true,
+            fontSize: 22,
+            
+            minimap: { enabled: true ,scale: 2} // Disable minimap for cleaner look
+            });
+        });
+
+        const langSelect = document.getElementById('language-select');
+        const output = document.getElementById('output');
+        const runBtn = document.getElementById('run-btn');
+
+        // Change demo code on language select
+        langSelect.addEventListener('change', () => {
+            const lang = langSelect.value;
+            editor.setValue(demoCodes[lang]);
+            monaco.editor.setModelLanguage(editor.getModel(), lang);
+            output.textContent = '';
+        });
+
+        // Run code using Piston API
+        runBtn.addEventListener('click', async () => {
+            const language = langSelect.value;
+            const code = editor.getValue();
+
+            output.textContent = '⏳ Running... Please wait...';
+
+            try {
+            const response = await fetch('https://emkc.org/api/v2/piston/execute', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                language: language,
+                version: '*',
+                files: [{ content: code }]
+                })
+            });
+
+            const result = await response.json();
+            if (result.run && result.run.output) {
+                output.textContent = result.run.output;
+            } else if (result.compile && result.compile.stderr) {
+                output.textContent = `Compilation Error:\n${result.compile.stderr}`;
+            }
+            else {
+                output.textContent = '⚠️ No output or execution error.';
+            }
+            } catch (err) {
+            output.textContent = '❌ Error: ' + err.message;
+            }
+        });
+
+        // Download code as .txt
+        document.getElementById('download-code-btn').addEventListener('click', () => {
+            const code = editor.getValue();
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `code.${langSelect.value === 'cpp' ? 'cpp' : langSelect.value === 'python' ? 'py' : langSelect.value === 'java' ? 'java' : 'c'}`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // Download output as text
+        document.getElementById('download-output-btn').addEventListener('click', () => {
+            const out = output.textContent;
+            const blob = new Blob([out], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'output.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // Download output as image using html2canvas
+        document.getElementById('download-output-img-btn').addEventListener('click', () => {
+            html2canvas(output, {
+                backgroundColor: "#000",  // Ensure black background
+                width: output.scrollWidth, // Capture full width
+                height: output.scrollHeight, // Capture full height
+                scale: 2                  // Improve resolution
+            }).then(canvas => {
+                const url = canvas.toDataURL('image/png');
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'output.png';
+                a.click();
+            }).catch(err => {
+                alert("Failed to capture image: " + err);
+            });
+        });
+    </script>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer">
+                <div class="footer-section">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                    <p class="footer-para">Algo Labs<br>Data Structure and Algorithms Coding<br>Nagpur, Maharashtra, India</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Data Structure and Algorithms</h3>
+                    <ul>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#search">Searching</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#sort">Sorting</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#cryptography">Cryptography</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#stacks">Stacks</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#tree">Tree</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">About</h3>
+                    <ul>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#about">About</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#concept">Our Concept</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#team">Team</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#plans">Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Contact</h3>
+                    <ul>
+                        <li><a class="footer-para" href="mailto:quantumcryptography3.6.9@gmail.com" target="_blank" rel="noopener noreferrer">quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="https://mail.google.com/mail/?view=cm&fs=1&to=quantumcryptography3.6.9@gmail.com&su=Your%20Subject&body=Your%20message%20here"" target="_blank" rel="noopener noreferrer">Gmail: quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="tel:+91 9876543210" target="_blank" rel="noopener noreferrer">+91 9876543210 (synthetic)</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html">Contact Us</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="X" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1058.01L667.137 450.887L356.364 0H0L468.551 681.821L0 1226.37H102.879L515.284 750.218L843.636 1226.37H1200L714.137 519.284H714.163ZM562.119 687.828L520.843 628.422L140.163 79.5685H306.457L610.291 520.037L651.568 579.442L1047.73 1146.8H881.435L562.119 687.828Z"/></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © <span id="current-year"></span> Algo Labs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

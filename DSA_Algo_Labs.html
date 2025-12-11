@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Labs</title>
+    <link rel="stylesheet" href="algolabscommon.css">
+    <script src="algolabscommon.js"></script>
+    <style>
+        .main-content{
+            position: relative;
+            max-width: 1920px;
+            max-height: 3000px;
+            justify-content: center;
+            display: grid;
+            color: #fff;
+            box-shadow: 6px 6px 6px rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            z-index: 0.5;
+            background-color: rgba(0,0,0,0.25);
+            padding: 15px 0;
+            /* margin-bottom: 500px; */
+            /* padding-bottom: 100px; */
+        }
+        .sec{
+            display: inline;
+            /* min-width: 1400px;
+            min-height: 500px; */
+            min-height: 370px;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
+        .imgDSA{
+            padding: 10px 80px 10px 80px;
+            margin: 10px 80px 10px 80px;
+        }
+        .x{
+            color: blanchedalmond;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'new_font',sans-serif;
+            padding: 10px 40px 10px 40px;
+            margin: 10px 40px 10px 40px;
+        }
+        .x a{
+            color: white;
+        }
+        .x a:hover{
+            color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.32/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/RlDcBifDCR1LKAEb/scene.splinecode"></spline-viewer>
+    </div>
+
+
+    <header>
+        <nav class="header-content">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                </div>
+                <ul>
+                    <li id="list"><a href="Algo_Labs.html">Home</a></li>
+                    <li id="list" class="dropdown">
+                        <a href="About_Algo_Labs.html">About</a>
+                        <div class="dropdown-content">
+                            <a href="About_Algo_Labs.html#team">Our Team</a>
+                            <a href="About_Algo_Labs.html#concept">Our Concept</a>
+                            <a href="About_Algo_Labs.html#plans">Plans</a>
+                            <a href="About_Algo_Labs.html#contact">Contact</a>
+                        </div>
+                    </li>
+                    <li id="list" class="dropdown">
+                        <a href="DSA_Algo_Labs.html">Learn</a>
+                        <div class="dropdown-content">
+                            <a href="DSA_Algo_Labs.html#algo">Data Structure</a>
+                            <a href="DSA_Algo_Labs.html#search">Searching</a>
+                            <a href="DSA_Algo_Labs.html#sort">Sorting</a>
+                            <a href="DSA_Algo_Labs.html#cryptography">Cryptography</a>
+                            <a href="DSA_Algo_Labs.html#stacks">Stacks</a>
+                            <a href="DSA_Algo_Labs.html#tree">Tree</a>
+                        </div>
+                    </li>
+                    <li id="list"><a href="DSA_Algo_Labs.html#compiler&notes">Compiler & note</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search..." aria-label="Search keyword">
+                    <button id="search-button">Search</button>
+                </div>
+                <div class="result" id="result-display">
+                    <p id="result-text">How may I <b>Help</b> you</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="sec" id="algo">
+            <div class="imgDSA"><img src="elements/pic12.jpg" alt="algorithm"></div>
+            <div class="x">
+                <h1><a href="DSA_DSA.html">Data Structure and Algorithm</a></h1>
+                <p>
+                    <ul>
+                        <li>Introduction to DSA</li>
+                        <li>lecture and Study on DSA</li>
+                        <li>Basic Data structure</li>
+                        <li>Basic Algorithms</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="sec" id="search">
+            <div class="imgDSA"><img src="elements/pic13.jpg" alt="search"></div>
+            <div class="x">
+                <h1><a href="Search_DSA.html">Search Algorithms</a></h1>
+                <p>
+                    <ul>
+                        <li>Introduction to Search</li>
+                        <li>Different types of Searching</li>
+                        <li>lecture and Study on Search</li>
+                        <li>Linear and Binary Search Algorithm</li>
+                    </ul>
+                </p>
+            </div>
+        </div> 
+        <div class="sec" id="sort">
+            <div class="imgDSA"><img src="elements/pic14.jpg" alt="sort"></div>
+            <div class="x">
+                <h1><a href="Sort_DSA.html">Sort Algorithms</a></h1>
+                <p>
+                    <ul>
+                        <li>Introduction to Sort</li>
+                        <li>Different types of Sorting</li>
+                        <li>lecture and Study on Sort</li>
+                        <li>Merge and Selection Sort Algorithm</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="sec" id="cryptography">
+            <div class="imgDSA"><img src="elements/pic15.jpg" alt="algorithm"></div>
+            <div class="x">
+                <h1><a href="Cryptography_DSA.html">Cryptography and Hashing</a></h1>
+                <p>
+                    <ul>
+                        <li>Introduction to Cryptography and Hashing</li>
+                        <li>lecture and Study on Hashing</li>
+                        <li>Basic Mathematical concepts</li>
+                        <li>Basic Linear Probing Algorithms</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="sec" id="stacks">
+            <div class="imgDSA"><img src="elements/pic16.jpg" alt="algorithm"></div>
+            <div class="x">
+                <h1><a href="Stacks_DSA.html">Stack Data-structure</a></h1>
+                <p>
+                    <ul>
+                        <li>Introduction to Stacks</li>
+                        <li>lecture and Study on Stacks</li>
+                        <li>Basic Data structure</li>
+                        <li>Basic Algorithms</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="sec" id="tree">
+            <div class="imgDSA"><img src="elements/pic19.jpg" alt="algorithm"></div>
+            <div class="x">
+                <h1><a href="Tree_DSA.html">Tree Data-structure</a></h1>
+                <p>
+                    <ul>
+                        <li>Introduction to Tree</li>
+                        <li>lecture and Study on Tree</li>
+                        <li>Basic Data structure</li>
+                        <li>Basic Algorithms</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="sec" id="compiler&notes">
+            <div class="imgDSA"><img src="elements/pic22.jpg" alt="algorithm"></div>
+            <div class="x">
+                <h1><a href="Compiler_DSA.html">Compiler & Notes</a></h1>
+                <p>
+                    <ul>
+                        <li>C ,C++ ,Python ,Java Compiler</li>
+                        <li>Terminal Windows</li>
+                        <li>Downloadable Code and Terminal Output</li>
+                        <li>Pre-defined codes</li>
+                        <li>Advanced Notes from MIT (Boston)</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer">
+                <div class="footer-section">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                    <p class="footer-para">Algo Labs<br>Data Structure and Algorithms Coding<br>Nagpur, Maharashtra, India</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Data Structure and Algorithms</h3>
+                    <ul>
+                        <li><a class="footer-para" href="#search">Searching</a></li>
+                        <li><a class="footer-para" href="#sort">Sorting</a></li>
+                        <li><a class="footer-para" href="#cryptography">Cryptography</a></li>
+                        <li><a class="footer-para" href="#stacks">Stacks</a></li>
+                        <li><a class="footer-para" href="#tree">Tree</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">About</h3>
+                    <ul>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#about">About</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#concept">Our Concept</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#team">Team</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#plans">Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Contact</h3>
+                    <ul>
+                        <li><a class="footer-para" href="mailto:quantumcryptography3.6.9@gmail.com" target="_blank" rel="noopener noreferrer">quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="https://mail.google.com/mail/?view=cm&fs=1&to=quantumcryptography3.6.9@gmail.com&su=Your%20Subject&body=Your%20message%20here"" target="_blank" rel="noopener noreferrer">Gmail: quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="tel:+91 9876543210" target="_blank" rel="noopener noreferrer">+91 9876543210 (synthetic)</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html">Contact Us</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="X" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1058.01L667.137 450.887L356.364 0H0L468.551 681.821L0 1226.37H102.879L515.284 750.218L843.636 1226.37H1200L714.137 519.284H714.163ZM562.119 687.828L520.843 628.422L140.163 79.5685H306.457L610.291 520.037L651.568 579.442L1047.73 1146.8H881.435L562.119 687.828Z"/></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © <span id="current-year"></span> Algo Labs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

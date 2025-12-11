@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Labs</title>
+    <link rel="stylesheet" href="algolabscommon.css">
+    <script src="algolabscommon.js"></script>
+    <script src="DSA.js"></script>
+    <link rel="stylesheet" href="DSA.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="background">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.32/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/RlDcBifDCR1LKAEb/scene.splinecode"></spline-viewer>
+    </div>
+
+
+    <header>
+        <nav class="header-content">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                </div>
+                <ul>
+                    <li id="list"><a href="Algo_Labs.html">Home</a></li>
+                    <li id="list" class="dropdown">
+                        <a href="About_Algo_Labs.html">About</a>
+                        <div class="dropdown-content">
+                            <a href="About_Algo_Labs.html#team">Our Team</a>
+                            <a href="About_Algo_Labs.html#concept">Our Concept</a>
+                            <a href="About_Algo_Labs.html#plans">Plans</a>
+                            <a href="About_Algo_Labs.html#contact">Contact</a>
+                        </div>
+                    </li>
+                    <li id="list" class="dropdown">
+                        <a href="DSA_Algo_Labs.html">Learn</a>
+                        <div class="dropdown-content">
+                            <a href="DSA_Algo_Labs.html#algo">Data Structure</a>
+                            <a href="DSA_Algo_Labs.html#search">Searching</a>
+                            <a href="DSA_Algo_Labs.html#sort">Sorting</a>
+                            <a href="DSA_Algo_Labs.html#cryptography">Cryptography</a>
+                            <a href="DSA_Algo_Labs.html#stacks">Stacks</a>
+                            <a href="DSA_Algo_Labs.html#tree">Tree</a>
+                        </div>
+                    </li>
+                    <li id="list"><a href="DSA_Algo_Labs.html#compiler&notes">Compiler & note</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search..." aria-label="Search keyword">
+                    <button id="search-button">Search</button>
+                </div>
+                <div class="result" id="result-display">
+                    <p id="result-text">How may I <b>Help</b> you</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="tab-buttons">
+            <button onclick="openTab(event, 'Aim')" class="active" id="button_left">Aim</button>
+            <button onclick="openTab(event, 'Concept')">Concept</button>
+            <button onclick="openTab(event, 'Algorithm')">Algorithm And Pseudo Code</button>
+            <button onclick="openTab(event, 'Demo')">Demo</button>
+            <button onclick="openTab(event, 'Quiz')" id="button_right">Quiz</button>
+        </div>
+        <div id="Aim" class="tab-content active">
+            <ul>
+                <li>
+                    <h2>What is Sorting in the context of data structures and algorithms?</h2>
+                    <p>Sorting is the process of arranging elements in a specific order, typically ascending or descending. Efficient sorting algorithms are essential for optimizing data retrieval and organization.</p>
+                    
+                </li>
+                <br>
+                <li>
+                    <h2>What is Selection Sort, and how does it work?</h2>
+                    <p>Selection Sort is a simple, comparison-based sorting algorithm that sorts an array by repeatedly selecting the minimum (or maximum) element from the unsorted portion and moving it to the beginning.</p>
+                    <h3>What are the time and space complexities of Selection Sort?</h3>
+                    <ul>
+                        <li><b>Space Complexity: </b>Auxiliary Space: O(1) (in-place sorting).</li>
+                        <li><b>Time Complexity:</b>
+                            <ul>
+                                <li>Best Case: O(n^2)</li>
+                                <li>Average Case: O(n^2)</li>
+                                <li>Worst Case: O(n^2)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>When is Linear Search useful?</h3>
+                    <p>Suitable for small datasets.Useful when memory space is a constraint.</p>
+                </li>
+                <br>
+                <li>
+                    <h2>What is Merge Sort, and how does it work?</h2>
+                    <p>Merge Sort is a divide-and-conquer algorithm that divides an array into two halves, sorts them, and then merges the sorted halves back together. It is highly efficient for large datasets.</p>
+                    <h3>What are the time and space complexities of Merge Sort?</h3>
+                    <ul>
+                        <li><b>Space Complexity: </b>O(n)</li>
+                        <li><b>Time Complexity:</b>
+                            <ul>
+                                <li>Best Case: O(n log n)</li>
+                                <li>Average Case: O(n log n)</li>
+                                <li>Worst Case: O(n log n)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>What are the application of Merge Sort?</h3>
+                    <p>Suitable for large datasets and linked lists.Often used in external sorting algorithms due to its predictable performance.</p>
+                </li>
+                <br>
+                <br>
+            </ul>
+        </div>
+        <div id="Concept" class="tab-content">
+            <div class="video-container">
+                <!-- Video element -->
+                <video id="video" src="video/Sort.mkv"></video>
+
+                <!-- Fallback Image (hidden by default) -->
+                <img id="fallbackImg" src="elements/picture.jpg" alt="Video not available" style="display:none; width:100%; border-radius:10px;">
+
+                <!-- Controls -->
+                <div class="controls">
+                    <button id="playPause">Play</button>
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <input type="range" id="volume" min="0" max="1" step="0.1" value="1" title="Volume">
+                </div>
+            </div>
+
+            <script>
+                const video = document.getElementById('video');
+                const playPauseButton = document.getElementById('playPause');
+                const volumeSlider = document.getElementById('volume');
+                const progressContainer = document.getElementById('progressContainer');
+                const progress = document.getElementById('progress');
+                const fallbackImg = document.getElementById('fallbackImg');
+
+                // Play / Pause
+                playPauseButton.addEventListener('click', () => {
+                    if (video.paused) {
+                        video.play();
+                        playPauseButton.textContent = 'Pause';
+                    } else {
+                        video.pause();
+                        playPauseButton.textContent = 'Play';
+                    }
+                });
+
+                // Progress bar update
+                video.addEventListener('timeupdate', () => {
+                    const progressPercent = (video.currentTime / video.duration) * 100;
+                    progress.style.width = `${progressPercent}%`;
+                });
+
+                // Seek on progress bar click
+                progressContainer.addEventListener('click', (e) => {
+                    const width = progressContainer.clientWidth;
+                    const clickX = e.offsetX;
+                    const duration = video.duration;
+                    video.currentTime = (clickX / width) * duration;
+                });
+
+                // Volume control
+                volumeSlider.addEventListener('input', () => {
+                    video.volume = volumeSlider.value;
+                });
+
+                // Handle video error → show image
+                video.addEventListener('error', () => {
+                    video.style.display = 'none';
+                    fallbackImg.style.display = 'block';
+                    console.warn("⚠️ Video not found. Showing fallback image.");
+                });
+
+                // Optional: if video source empty
+                if (!video.getAttribute('src')) {
+                    video.style.display = 'none';
+                    fallbackImg.style.display = 'block';
+                }
+            </script>
+        </div>
+        <div id="Algorithm" class="tab-content">
+            <!-- <h3>Algorithm and Psuedo Code</h3> -->
+            <h2>Algorithm and Pseudo code For Selection Sort.</h2>
+            <ul>
+                <li>
+                    <h3>Algorithm</h3>
+                    <ol>
+                        <li><p>Iterate through the array.</p></li>
+                        <li><p>Find the smallest element in the unsorted portion.</p></li>
+                        <li><p>Swap it with the first unsorted element.</p></li>
+                        <li><p>Repeat until the array is sorted.</p></li>
+                    </ol>
+                </li>
+                <li>
+                    <h3>Pseudo Code</h3>
+                    <pre>
+                        SelectionSort(array)
+                        FOR i = 0 TO n-1
+                            minIndex = i
+                            FOR j = i+1 TO n
+                                IF array[j] < array[minIndex] THEN
+                                    minIndex = j
+                                END IF
+                            END FOR
+                            Swap(array[i], array[minIndex])
+                        END FOR
+                                        
+                    </pre>
+                </li>
+            </ul>
+            <h2>Algorithm and Pseudo code For Merge Sort.</h2>
+            <ul>
+                <li>
+                    <h3>Algorithm</h3>
+                    <ol>
+                        <li><p>Divide the unsorted list into two approximately equal halves.</p></li>
+                        <li><p>Recursively sort both halves.</p></li>
+                        <li><p>Merge the sorted halves back together.</p></li>
+                    </ol>
+                </li>
+                <li>
+                    <h3>Pseudo Code</h3>
+                    <pre>
+                        MERGE_SORT(array, left, right)
+                            IF left < right THEN
+                                mid = (left + right) / 2
+                                MERGE_SORT(array, left, mid)        // Sort left half
+                                MERGE_SORT(array, mid + 1, right)   // Sort right half
+                                MERGE(array, left, mid, right)      // Merge sorted halves
+
+                        MERGE(array, left, mid, right)
+                            // Create temporary arrays for left and right subarrays
+                            n1 = mid - left + 1
+                            n2 = right - mid
+                            CREATE leftArray[n1], rightArray[n2]
+
+                            // Copy data to temporary arrays
+                            FOR i = 0 TO n1 - 1 DO leftArray[i] = array[left + i]
+                            FOR j = 0 TO n2 - 1 DO rightArray[j] = array[mid + 1 + j]
+
+                            // Merge the temporary arrays
+                            i = 0, j = 0, k = left
+                            WHILE i < n1 AND j < n2 DO
+                                IF leftArray[i] <= rightArray[j] THEN
+                                    array[k] = leftArray[i]
+                                    i++
+                                ELSE
+                                    array[k] = rightArray[j]
+                                    j++
+                                k++
+
+                            // Copy remaining elements, if any
+                            WHILE i < n1 DO array[k++] = leftArray[i++]
+                            WHILE j < n2 DO array[k++] = rightArray[j++]
+
+                    </pre>
+                </li>
+            </ul>
+        </div>
+        <div id="Demo" class="tab-content">
+            
+            <div class="container_demo">
+                <div class="visualization-container_demo">
+                    <div class="controls">
+                        <input type="number" id="arraySize" placeholder="Array Size" value="10" min="5" max="20">
+                        <button onclick="generateArray()">Generate Array</button>
+                        
+                        <div id="searchControls" style="display: none;">
+                            <input type="number" id="searchValue" placeholder="Search Value">
+                            <select id="searchType">
+                                <option value="linear">Linear Search</option>
+                                <option value="binary">Binary Search</option>
+                            </select>
+                            <button onclick="startSearch()">Search</button>
+                        </div>
+        
+                        <div id="sortControls" style="display: none;">
+                            <select id="sortType">
+                                <option value="bubble">Bubble Sort</option>
+                                <option value="selection">Selection Sort</option>
+                                <option value="quick">Quick Sort</option>
+                            </select>
+                            <select id="sortOrder">
+                                <option value="ascending">Ascending</option>
+                                <option value="descending">Descending</option>
+                            </select>
+                            <button onclick="startSort()">Sort</button>
+                        </div>
+                    </div>
+        
+                    <div class="array-container_demo" id="arrayContainer"></div>
+                    <div class="info-panel" id="infoPanel"></div>
+                </div>
+            </div>
+        
+            <script>
+                let currentArray = [];
+                let currentTab = 'searching';
+                let isAnimating = false;
+        
+                window.onload = () => {
+                    generateArray();
+                    switchTab('sorting');
+                };
+        
+                function generateArray() {
+                    const size = Math.min(Math.max(parseInt(document.getElementById('arraySize').value) || 10, 5), 20);
+                    currentArray = Array.from({length: size}, () => Math.floor(Math.random() * 100));
+                    displayArray();
+                    updateInfoPanel('New array generated');
+                }
+        
+                function displayArray() {
+                    const container_demo = document.getElementById('arrayContainer');
+                    container_demo.innerHTML = '';
+                    const maxHeight = 250;
+                    const maxValue = Math.max(...currentArray);
+                    
+                    currentArray.forEach((value, index) => {
+                        const bar = document.createElement('div');
+                        bar.className = 'array-bar';
+                        const height = (value / maxValue) * maxHeight;
+                        bar.style.height = `${height}px`;
+                        bar.textContent = value;
+                        container_demo.appendChild(bar);
+                    });
+                }
+        
+                function switchTab(tab) {
+                    if (isAnimating) return;
+                    currentTab = tab;
+                    document.getElementById('searchControls').style.display = tab === 'searching' ? 'flex' : 'none';
+                    document.getElementById('sortControls').style.display = tab === 'sorting' ? 'flex' : 'none';
+                    updateInfoPanel(`Switched to ${tab}`);
+                }
+        
+                function updateInfoPanel(message) {
+                    document.getElementById('infoPanel').textContent = message;
+                }
+        
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+        
+                async function startSearch() {
+                    if (isAnimating) return;
+                    isAnimating = true;
+                    
+                    const searchType = document.getElementById('searchType').value;
+                    const target = parseInt(document.getElementById('searchValue').value);
+        
+                    if (isNaN(target)) {
+                        updateInfoPanel('Please enter a valid search value');
+                        isAnimating = false;
+                        return;
+                    }
+        
+                    if (searchType === 'linear') {
+                        await linearSearch(target);
+                    } else {
+                        await binarySearch(target);
+                    }
+                    
+                    isAnimating = false;
+                }
+        
+                async function linearSearch(target) {
+                    const bars = document.getElementsByClassName('array-bar');
+                    
+                    for (let i = 0; i < currentArray.length; i++) {
+                        bars[i].style.background = '#ff4444';
+                        await sleep(500);
+                        
+                        if (currentArray[i] === target) {
+                            bars[i].style.background = '#4CAF50';
+                            updateInfoPanel(`Found ${target} at index ${i}`);
+                            return;
+                        }
+                        
+                        bars[i].style.background = '#007bff';
+                    }
+                    
+                    updateInfoPanel(`${target} not found in array`);
+                }
+        
+                async function binarySearch(target) {
+                    const sortedArray = [...currentArray].sort((a, b) => a - b);
+                    currentArray = sortedArray;
+                    displayArray();
+                    await sleep(500);
+        
+                    const bars = document.getElementsByClassName('array-bar');
+                    let left = 0;
+                    let right = currentArray.length - 1;
+        
+                    while (left <= right) {
+                        const mid = Math.floor((left + right) / 2);
+                        
+                        for (let i = left; i <= right; i++) {
+                            bars[i].style.background = '#ffd700';
+                        }
+                        
+                        bars[mid].style.background = '#ff4444';
+                        await sleep(500);
+        
+                        if (currentArray[mid] === target) {
+                            bars[mid].style.background = '#4CAF50';
+                            updateInfoPanel(`Found ${target} at index ${mid}`);
+                            return;
+                        }
+                        
+                        if (currentArray[mid] < target) {
+                            left = mid + 1;
+                        } else {
+                            right = mid - 1;
+                        }
+        
+                        displayArray();
+                        for (let i = left; i <= right; i++) {
+                            bars[i].style.background = '#007bff';
+                        }
+                        await sleep(500);
+                    }
+                    
+                    updateInfoPanel(`${target} not found in array`);
+                }
+        
+                async function startSort() {
+                    if (isAnimating) return;
+                    isAnimating = true;
+                    
+                    const sortType = document.getElementById('sortType').value;
+                    const isAscending = document.getElementById('sortOrder').value === 'ascending';
+        
+                    switch (sortType) {
+                        case 'bubble':
+                            await bubbleSort(isAscending);
+                            break;
+                        case 'selection':
+                            await selectionSort(isAscending);
+                            break;
+                        case 'quick':
+                            const arr = [...currentArray];
+                            await quickSort(arr, 0, arr.length - 1, isAscending);
+                            break;
+                    }
+                    
+                    isAnimating = false;
+                }
+        
+                async function bubbleSort(ascending) {
+                    const bars = document.getElementsByClassName('array-bar');
+                    
+                    for (let i = 0; i < currentArray.length; i++) {
+                        for (let j = 0; j < currentArray.length - i - 1; j++) {
+                            bars[j].style.background = '#ff4444';
+                            bars[j + 1].style.background = '#ff4444';
+                            
+                            await sleep(100);
+                            
+                            const compare = ascending ? 
+                                currentArray[j] > currentArray[j + 1] :
+                                currentArray[j] < currentArray[j + 1];
+                            
+                            if (compare) {
+                                [currentArray[j], currentArray[j + 1]] = [currentArray[j + 1], currentArray[j]];
+                                displayArray();
+                            }
+                            
+                            bars[j].style.background = '#007bff';
+                            bars[j + 1].style.background = '#007bff';
+                        }
+                        
+                        bars[currentArray.length - i - 1].style.background = '#4CAF50';
+                    }
+                    
+                    updateInfoPanel('Sorting completed');
+                }
+        
+                async function selectionSort(ascending) {
+                    const bars = document.getElementsByClassName('array-bar');
+                    
+                    for (let i = 0; i < currentArray.length - 1; i++) {
+                        let extremeIndex = i;
+                        bars[i].style.background = '#ff4444';
+                        
+                        for (let j = i + 1; j < currentArray.length; j++) {
+                            bars[j].style.background = '#ffd700';
+                            await sleep(100);
+                            
+                            const compare = ascending ?
+                                currentArray[j] < currentArray[extremeIndex] :
+                                currentArray[j] > currentArray[extremeIndex];
+                            
+                            if (compare) {
+                                if (extremeIndex !== i) {
+                                    bars[extremeIndex].style.background = '#007bff';
+                                }
+                                extremeIndex = j;
+                                bars[extremeIndex].style.background = '#ff4444';
+                            } else {
+                                bars[j].style.background = '#007bff';
+                            }
+                        }
+                        
+                        if (extremeIndex !== i) {
+                            [currentArray[i], currentArray[extremeIndex]] = [currentArray[extremeIndex], currentArray[i]];
+                            displayArray();
+                        }
+                        
+                        bars[i].style.background = '#4CAF50';
+                    }
+                    
+                    bars[currentArray.length - 1].style.background = '#4CAF50';
+                    updateInfoPanel('Sorting completed');
+                }
+        
+                async function quickSort(arr, low, high, ascending) {
+                    if (low < high) {
+                        const pi = await partition(arr, low, high, ascending);
+                        currentArray = [...arr];
+                        displayArray();
+                        await quickSort(arr, low, pi - 1, ascending);
+                        await quickSort(arr, pi + 1, high, ascending);
+                    }
+                }
+        
+                async function partition(arr, low, high, ascending) {
+                    const bars = document.getElementsByClassName('array-bar');
+                    const pivot = arr[high];
+                    bars[high].style.background = '#ff4444';
+                    
+                    let i = low - 1;
+                    
+                    for (let j = low; j < high; j++) {
+                        bars[j].style.background = '#ffd700';
+                        await sleep(100);
+                        
+                        const compare = ascending ?
+                            arr[j] <= pivot :
+                            arr[j] >= pivot;
+                        
+                        if (compare) {
+                            i++;
+                            [arr[i], arr[j]] = [arr[j], arr[i]];
+                            currentArray = [...arr];
+                            displayArray();
+                        }
+                        
+                        bars[j].style.background = '#007bff';
+                    }
+                    
+                    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+                    currentArray = [...arr];
+                    displayArray();
+                    
+                    return i + 1;
+                }
+            </script>
+        </div>
+        <div id="Quiz" class="tab-content">
+            <div class="quiz-container">
+                <div class="header_Quiz">
+                    <h2>Sort MCQ Test</h2>
+                    <div class="timer" id="timer">Time: 10:00</div>
+                </div>
+                <div id="questionContainer" class="question-container"></div>
+                <div class="navigation">
+                    <button class="btn submit-btn" id="submitBtn">Submit Test</button>
+                    <input type="text" class="EmailID" id="emailID" placeholder="Email ID befor Submit">  
+                </div>
+                <div id="Quiz_results" class="Quiz_results">
+                    <div class="score">Your Score: <span id="scoreValue">0</span>/5</div>
+                    <div class="feedback" id="feedback"></div>
+                    <button class="btn retry-btn" id="retryBtn">Take New Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: "What is the time complexity of Selection Sort in the worst case?",
+                options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"],
+                correct: 2
+            },
+            {
+                question: "Which sorting algorithm is based on the divide-and-conquer principle?",
+                options: ["Selection Sort", "Insertion Sort", "Merge Sort", "Bubble Sort"],
+                correct: 2
+            },
+            {
+                question: "What is the space complexity of Merge Sort?",
+                options: ["O(1)", "O(n)", "O(n log n)", "O(log n)"],
+                correct: 1
+            },
+            {
+                question: "Which of the following sorting algorithms is stable?",
+                options: ["Selection Sort", "Merge Sort", "Quick Sort", "Heap Sort"],
+                correct: 1
+            },
+            {
+                question: "In Selection Sort, which element is placed in the first position during the first pass?",
+                options: ["The largest element", "The smallest element", "The median element", "The pivot element"],
+                correct: 1
+            },
+            {
+                question: "How does Merge Sort combine sorted arrays?",
+                options: ["By concatenating them", "By merging them in sorted order", "By swapping elements", "By using recursion only"],
+                correct: 1
+            },
+            {
+                question: "What is the best-case time complexity of Merge Sort?",
+                options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"],
+                correct: 1
+            },
+            {
+                question: "Which algorithm performs better for small datasets?",
+                options: ["Merge Sort", "Selection Sort", "Quick Sort", "Heap Sort"],
+                correct: 1
+            },
+            {
+                question: "What is the primary advantage of using Merge Sort?",
+                options: ["It is faster than all other sorting algorithms.", "It can sort linked lists efficiently.", "It is in-place.", "It requires less memory."],
+                correct: 1
+            },
+            {
+                question: "In Selection Sort, how many passes are needed to sort an array of size n?",
+                options: ["n-1", "n", "n/2", "log n"],
+                correct: 0
+            },
+            {
+                question: "What is the worst-case time complexity of Merge Sort?",
+                options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"],
+                correct: 1
+            },
+            {
+                question: "Which of the following is NOT a characteristic of Selection Sort?",
+                options: ["In-place", "Stable", "Not adaptive", "O(n^2) time complexity"],
+                correct: 1
+            },
+            {
+                question: "What is the main disadvantage of Merge Sort?",
+                options: ["It is slower than other algorithms.", "It requires additional memory.", "It is not stable.", "It cannot sort linked lists."],
+                correct: 1
+            },
+            {
+                question: "Which of the following algorithms is typically used in external sorting?",
+                options: ["Selection Sort", "Bubble Sort", "Merge Sort", "Insertion Sort"],
+                correct: 2
+            },
+            {
+                question: "What type of sorting is Selection Sort considered?",
+                options: ["In-place sorting", "Recursive sorting", "Stable sorting", "Adaptive sorting"],
+                correct: 0
+            }
+        ];
+    
+
+        let currentQuestions = [];
+        let selectedAnswers = new Array(5).fill(-1);
+        let timeLeft = 600; 
+        let timerInterval;
+        function initializeQuiz() {
+            currentQuestions = shuffleArray(questions).slice(0, 5);
+            selectedAnswers = new Array(5).fill(-1);
+            displayQuestions();
+            startTimer();
+            
+            document.getElementById('Quiz_results').style.display = 'none';
+            document.getElementById('questionContainer').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'block';
+            document.getElementById('emailID').style.display = 'block';
+
+        }
+        function shuffleArray(array) {
+            let currentIndex = array.length;
+            while (currentIndex !== 0) {
+                const randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+        function displayQuestions() {
+            const container = document.getElementById('questionContainer');
+            container.innerHTML = '';
+
+            currentQuestions.forEach((q, questionIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-container';
+
+                const questionText = document.createElement('div');
+                questionText.className = 'question';
+                questionText.textContent = `${questionIndex + 1}. ${q.question}`;
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+
+                const shuffledOptions = shuffleArray([...q.options.map((opt, idx) => ({text: opt, index: idx}))]);
+
+                shuffledOptions.forEach((opt, optIndex) => {
+                    const option = document.createElement('div');
+                    option.className = 'option';
+                    if (selectedAnswers[questionIndex] === opt.index) {
+                        option.classList.add('selected');
+                    }
+                    option.textContent = opt.text;
+                    option.addEventListener('click', () => selectOption(questionIndex, opt.index));
+                    optionsDiv.appendChild(option);
+                });
+
+                questionDiv.appendChild(questionText);
+                questionDiv.appendChild(optionsDiv);
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            selectedAnswers[questionIndex] = optionIndex;
+            displayQuestions();
+        }
+
+        function startTimer() {
+            timeLeft = 600;
+            updateTimerDisplay();
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    submitTest();
+                }
+            }, 1000);
+        }
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        async function submitTest() {
+            clearInterval(timerInterval);
+            const score = calculateScore();
+            
+            await storeTestResult({
+                email: document.getElementById('emailID').value, 
+                score: score,
+                timestamp: new Date().toISOString()
+            });
+
+            displayResults(score);
+        }
+
+        function calculateScore() {
+            let score = 0;
+            currentQuestions.forEach((q, index) => {
+                if (selectedAnswers[index] === q.correct) {
+                    score++;
+                }
+            });
+            return score;
+        }
+        async function storeTestResult(resultData) {
+            const email = resultData.email;
+            const score = resultData.score;
+            const timestamp = resultData.timestamp;
+            const data = [
+                ['Email', 'Score', 'Timestamp'],  
+                [email, score, timestamp]         
+            ];
+            const worksheet = XLSX.utils.aoa_to_sheet(data);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'TestResults');
+            XLSX.writeFile(workbook, 'SortTestResults.xlsx');
+            alert('Test result saved to Excel file.');
+        }
+        function displayResults(score) {
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('emailID').style.display = 'none';
+            document.getElementById('emailID').text = null;
+            document.getElementById('Quiz_results').style.display = 'block';
+            document.getElementById('scoreValue').textContent = score;
+            
+            const feedback = document.getElementById('feedback');
+            if (score >= 4) {
+                feedback.textContent = "Excellent! You have a strong understanding of DSA concepts.";
+            } else if (score >= 2) {
+                feedback.textContent = "Good effort! Keep practicing to improve your DSA knowledge.";
+            } else {
+                feedback.textContent = "Keep learning! Review the concepts and try again.";
+            }
+        }
+
+        document.getElementById('submitBtn').addEventListener('click', submitTest);
+        document.getElementById('retryBtn').addEventListener('click', initializeQuiz);
+
+        initializeQuiz();
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer">
+                <div class="footer-section">
+                    <img src="elements/logo.png" alt="Company Logo" class="Company Logo">
+                    <p class="footer-para">Algo Labs<br>Data Structure and Algorithms Coding<br>Nagpur, Maharashtra, India</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Data Structure and Algorithms</h3>
+                    <ul>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#search">Searching</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#sort">Sorting</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#cryptography">Cryptography</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#stacks">Stacks</a></li>
+                        <li><a class="footer-para" href="DSA_Algo_Labs.html#tree">Tree</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">About</h3>
+                    <ul>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#about">About</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#concept">Our Concept</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#team">Team</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html#plans">Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer_heading">Contact</h3>
+                    <ul>
+                        <li><a class="footer-para" href="mailto:quantumcryptography3.6.9@gmail.com" target="_blank" rel="noopener noreferrer">quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="https://mail.google.com/mail/?view=cm&fs=1&to=quantumcryptography3.6.9@gmail.com&su=Your%20Subject&body=Your%20message%20here"" target="_blank" rel="noopener noreferrer">Gmail: quantumcryptography3.6.9@gmail.com</a></li>
+                        <li><a class="footer-para" href="tel:+91 9876543210" target="_blank" rel="noopener noreferrer">+91 9876543210 (synthetic)</a></li>
+                        <li><a class="footer-para" href="About_Algo_Labs.html">Contact Us</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="X" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1058.01L667.137 450.887L356.364 0H0L468.551 681.821L0 1226.37H102.879L515.284 750.218L843.636 1226.37H1200L714.137 519.284H714.163ZM562.119 687.828L520.843 628.422L140.163 79.5685H306.457L610.291 520.037L651.568 579.442L1047.73 1146.8H881.435L562.119 687.828Z"/></svg>
+                        </a>
+                        <a class="footer-para" href="https://www.instagram.com/taran_wadhawan" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © <span id="current-year"></span> Algo Labs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
