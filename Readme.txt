@@ -1,6 +1,12 @@
+# Algo Labs
+
+** Website:** https://taranwadhawan.github.io/Algo-Labs/Algo_Labs.html  
+Or click here: **[Open Algo Labs](https://taranwadhawan.github.io/Algo-Labs/Algo_Labs.html)**
+
 Algo Labs a DSA Learning Hub is an interactive educational website designed to help students and enthusiasts learn Data Structures and Algorithms (DSA) in a structured and practical way.
 Algo Labs combines theoretical understanding with hands-on coding, allowing learners to explore concepts deeply and apply them instantly.
 The platform provides everything you need to master DSA — from lecture videos and notes to pseudo code, MIT-level resources, and live coding practice.
+
 
 Algo Labs is fullfilled with:
 Lecture Videos:
